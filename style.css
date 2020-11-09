@@ -26,3 +26,7 @@
   border-right: 15px solid red;
   display: table-cell;
 }
+
+span {
+  display: none;
+}
