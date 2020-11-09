@@ -21,8 +21,8 @@ const ticTacToeGrid = [
 ];
 
 //pull all elements from html
-const grid = document.querySelector('.grid');
-const gridCells = Array.from(document.querySelectorAll('div div'));
+const grid = document.querySelector('.TTT-grid');
+const gridCells = Array.from(document.querySelectorAll('.spot'));
 
 //function to play the game, add x or o if cell is empty
 const addX = function() {
