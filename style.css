@@ -1,7 +1,9 @@
 .TTT-grid {
   display: table;
-  border-top: 5px solid red;
-  border-bottom: 5px solid red;
+  border-top: 5px;
+  border-bottom: 5px;
+  border-top-color: red;
+  border-bottom-color: red;
   height: 450px;
   width: 450px;
   margin: 0 auto;
@@ -10,9 +12,10 @@
 
 .row {
   display: table-row;
-  border-top: 10px solid red;
-  border-bottom: 10px solid red;
-
+  border-top: 10px;
+  border-bottom: 10px;
+  border-top-color: red;
+  border-bottom-color: red;
 }
 
 .spot {
