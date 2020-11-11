@@ -25,6 +25,7 @@ const grid = document.querySelector('.TTT-grid');
 const gridCells = Array.from(document.querySelectorAll('.spot'));
 const infoText = document.querySelector('p');
 
+//tell the person if x's or o's won
 function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
     infoText.textContent = 'X wins';
