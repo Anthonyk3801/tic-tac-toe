@@ -27,52 +27,52 @@ const infoText = document.querySelector('p');
 
 function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[3].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[5].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[6].value == 'x' && ticTacToeGrid[7].value == 'x' && ticTacToeGrid[8].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[3].value == 'x' && ticTacToeGrid[6].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[1].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[7].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[5].value == 'x' && ticTacToeGrid[8].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[8].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[6].value == 'x'){
-    infoText.textContent(“x wins”)
+    infoText.textContent = 'X wins';
   }
-  if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
-    infoText.textContent(“o wins”)
+  else if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[3].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[5].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[6].value == 'o' && ticTacToeGrid[7].value == 'o' && ticTacToeGrid[8].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[3].value == 'o' && ticTacToeGrid[6].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[1].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[7].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[5].value == 'o' && ticTacToeGrid[8].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[8].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[6].value == 'o'){
-    infoText.textContent(“o wins”)
+    infoText.textContent = 'O wins';
   }
 }
 
@@ -139,6 +139,7 @@ const addX = function() {
         ticTacToeGrid[8].value = 'x';
       }
       grid.removeEventListener('click', placeX);
+      checkWin();
       addO();
     }
   });
@@ -207,6 +208,7 @@ const addO = function() {
         ticTacToeGrid[8].value = 'o';
       }
       grid.removeEventListener('click', placeO);
+      checkWin();
       addX();
     }
   });
