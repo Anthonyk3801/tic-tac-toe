@@ -24,6 +24,57 @@ const ticTacToeGrid = [
 const grid = document.querySelector('.TTT-grid');
 const gridCells = Array.from(document.querySelectorAll('.spot'));
 
+function checkWin(){
+  if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[3].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[5].value == 'x'){
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[6].value == 'x' && ticTacToeGrid[7].value == 'x' && ticTacToeGrid[8].value == 'x'){
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[3].value == 'x' && ticTacToeGrid[6].value == 'x'){
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[1].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[7].value == 'x'){
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[5].value == 'x' && ticTacToeGrid[8].value == 'x'){
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[8].value == 'x'){
+    infoText.textContent(“x wins”)
+  }else if
+    (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[6].value == 'x'){
+    infoText.textContent(“x wins”)
+  }
+  if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[3].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[5].value == 'o'){
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[6].value == 'o' && ticTacToeGrid[7].value == 'o' && ticTacToeGrid[8].value == 'o'){
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[3].value == 'o' && ticTacToeGrid[6].value == 'o'){
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[1].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[7].value == 'o'){
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[5].value == 'o' && ticTacToeGrid[8].value == 'o'){
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[8].value == 'o'){
+    infoText.textContent(“o wins”)
+  }else if
+    (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[6].value == 'o'){
+    infoText.textContent(“o wins”)
+  }
+}
+
 //function to play the game, add x if cell is empty
 const addX = function() {
   //add event listener for the whole grid, but check which box was clicked
