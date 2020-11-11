@@ -23,6 +23,7 @@ const ticTacToeGrid = [
 //pull all elements from html
 const grid = document.querySelector('.TTT-grid');
 const gridCells = Array.from(document.querySelectorAll('.spot'));
+const infoText = document.querySelector('p');
 
 function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
@@ -78,6 +79,7 @@ function checkWin(){
 //function to play the game, add x if cell is empty
 const addX = function() {
   //add event listener for the whole grid, but check which box was clicked
+  infoText.textContent = "It is X's turn";
   grid.addEventListener('click', placeX = () => {
     let clickedCell = ticTacToeGrid[Number(event.target.id)];
     console.log(clickedCell);
@@ -145,6 +147,7 @@ const addX = function() {
 //function to play the game, add o if cell is empty
 const addO = function() {
   //add event listener for the whole grid, but check which box was clicked
+  infoText.textContent = "It is O's turn";
   grid.addEventListener('click', placeO = () => {
     let clickedCell = ticTacToeGrid[Number(event.target.id)];
     console.log(clickedCell);
