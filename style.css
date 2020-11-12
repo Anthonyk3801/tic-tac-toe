@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100px;
+  text-align: center;
+}
+
 .TTT-grid {
   display: table;
   border-top: 5px;
@@ -19,8 +28,8 @@
 }
 
 .spot {
-  height: 45px;
-  width: 45px;
+  height: 150px;
+  width: 150px;
   border-top: 10px solid red;
   border-bottom: 10px solid red;
   border-left: 15px solid red;
@@ -30,4 +39,5 @@
 
 span {
   display: none;
+  margin-top: 20%;
 }
