@@ -25,55 +25,84 @@ const grid = document.querySelector('.TTT-grid');
 const gridCells = Array.from(document.querySelectorAll('.spot'));
 const infoText = document.querySelector('p');
 
+//value to stop the game
+let stopGame = false;
+
 //tell the person if x's or o's won
 function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[3].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[5].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[6].value == 'x' && ticTacToeGrid[7].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[3].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[1].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[7].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[5].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
+    stopGame = true;
   }
   else if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[3].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[5].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[6].value == 'o' && ticTacToeGrid[7].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[3].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[1].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[7].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[5].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
+    stopGame = true;
+  } else {
+    stopGame = true;
+    for (let spot of ticTacToeGrid) {
+      if (spot.empty == true) {
+        stopGame = false;
+      }
+    }
+    if (stopGame == true) {
+      infoText.textContent = "It's a draw!";
+    }
   }
 }
 
@@ -92,7 +121,9 @@ const addX = function() {
       ticTacToeGrid[cellNumber].value = 'x';
       grid.removeEventListener('click', placeX);
       checkWin();
-      addO();
+      if (stopGame == false) {
+        addO();
+      }
     }
   });
 }
@@ -112,7 +143,9 @@ const addO = function() {
       ticTacToeGrid[cellNumber].value = 'o';
       grid.removeEventListener('click', placeO);
       checkWin();
-      addX();
+      if (stopGame == false) {
+        addX();
+      }
     }
   });
 }
