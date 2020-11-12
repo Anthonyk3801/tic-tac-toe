@@ -41,3 +41,8 @@ span {
   display: none;
   margin-top: 20%;
 }
+
+#restartGame {
+  font-size: 20px;
+  cursor: pointer;
+}

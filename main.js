@@ -33,66 +33,82 @@ function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[3].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[5].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[6].value == 'x' && ticTacToeGrid[7].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[3].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[1].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[7].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[5].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }
   else if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[3].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[5].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[6].value == 'o' && ticTacToeGrid[7].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[3].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[1].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[7].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[5].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    document.getElementById("restartGame").hidden = false;
   } else {
     stopGame = true;
     for (let spot of ticTacToeGrid) {
@@ -102,6 +118,7 @@ function checkWin(){
     }
     if (stopGame == true) {
       infoText.textContent = "It's a draw!";
+      document.getElementById("restartGame").hidden = false;
     }
   }
 }
