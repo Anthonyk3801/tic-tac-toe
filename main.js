@@ -24,6 +24,7 @@ const ticTacToeGrid = [
 const grid = document.querySelector('.TTT-grid');
 const gridCells = Array.from(document.querySelectorAll('.spot'));
 const infoText = document.querySelector('p');
+const resetButton = document.querySelector('#restartGame');
 
 //value to stop the game
 let stopGame = false;
@@ -33,82 +34,66 @@ function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[3].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[5].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[6].value == 'x' && ticTacToeGrid[7].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[3].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[1].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[7].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[5].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }
   else if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[3].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[5].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[6].value == 'o' && ticTacToeGrid[7].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[3].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[1].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[7].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[5].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
-    document.getElementById("restartGame").hidden = false;
   } else {
     stopGame = true;
     for (let spot of ticTacToeGrid) {
@@ -118,8 +103,10 @@ function checkWin(){
     }
     if (stopGame == true) {
       infoText.textContent = "It's a draw!";
-      document.getElementById("restartGame").hidden = false;
     }
+  }
+  if (stopGame === true) {
+    resetButton.style.display = 'block';
   }
 }
 
@@ -166,12 +153,20 @@ const addO = function() {
     }
   });
 }
-addX();
 
 function restart() {
+  resetButton.style.display = 'none';
   let reset = document.querySelectorAll('span');
   reset.forEach(function(item){
-  item.textContent = ""
-  })
+    item.style.display = "none";
+  });
+  for (let spot of ticTacToeGrid) {
+    spot.value = 'none';
+    spot.empty = true;
+  }
   stopGame = false;
+  addX();
 }
+
+addX();
+resetButton.addEventListener('click', restart);
