@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -43,6 +45,8 @@ span {
 }
 
 #restartGame {
+  display: none;
   font-size: 20px;
   cursor: pointer;
+  margin: 5px auto;
 }
