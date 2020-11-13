@@ -167,3 +167,11 @@ const addO = function() {
   });
 }
 addX();
+
+function restart() {
+  let reset = document.querySelectorAll('span');
+  reset.forEach(function(item){
+  item.textContent = ""
+  })
+  stopGame = false;
+}
