@@ -35,74 +35,95 @@ const gridCells = Array.from(document.querySelectorAll('.spot'));
 const infoText = document.querySelector('p');
 const resetButton = document.querySelector('#restartGame');
 
-//value to stop the game
+//variable to stop the game
 let stopGame = false;
+
+//variables for x or o winning, or a draw
+let xWon = false;
+let oWon = false;
+let draw = false;
 
 //tell the person if x's or o's won
 function checkWin(){
   if (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[1].value == 'x' && ticTacToeGrid[2].value == 'x') {
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[3].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[5].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[6].value == 'x' && ticTacToeGrid[7].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[3].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[1].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[7].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[5].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[0].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[8].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }else if
     (ticTacToeGrid[2].value == 'x' && ticTacToeGrid[4].value == 'x' && ticTacToeGrid[6].value == 'x'){
     infoText.textContent = 'X wins';
     stopGame = true;
+    xWon = true;
   }
   else if (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[1].value == 'o' && ticTacToeGrid[2].value == 'o') {
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[3].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[5].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[6].value == 'o' && ticTacToeGrid[7].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[3].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[1].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[7].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[5].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[0].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[8].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   }else if
     (ticTacToeGrid[2].value == 'o' && ticTacToeGrid[4].value == 'o' && ticTacToeGrid[6].value == 'o'){
     infoText.textContent = 'O wins';
     stopGame = true;
+    oWon = true;
   } else {
     stopGame = true;
     for (let spot of ticTacToeGrid) {
@@ -112,6 +133,7 @@ function checkWin(){
     }
     if (stopGame == true) {
       infoText.textContent = "It's a draw!";
+      draw = true;
     }
   }
   if (stopGame === true) {
@@ -163,11 +185,10 @@ const addO = function() {
   });
 }
 
-//function to reset the board
 function restart() {
   resetButton.style.display = 'none';
   let reset = document.querySelectorAll('span');
-  reset.forEach(function(item){
+  reset.forEach(function(item) {
     item.style.display = "none";
   });
   for (let spot of ticTacToeGrid) {
@@ -175,8 +196,22 @@ function restart() {
     spot.empty = true;
   }
   stopGame = false;
-  addX();
+  if (xWon) {
+    addO();
+    xWon = false;
+  } else if (oWon) {
+    addX();
+    oWon = false;
+  } else if (draw) {
+    let nextPlayer = Math.random();
+    if (nextPlayer > 0.5) {
+      addX();
+    } else {
+      addO();
+    }
+    draw = false;
+  }
 }
 
-addX();
+start();
 resetButton.addEventListener('click', restart);
